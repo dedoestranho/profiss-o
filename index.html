@@ -1,1 +1,209 @@
-iouygiu
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sorriso | Odontologia Especializada</title>
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* Serviços */
+        .services {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .services h2 {
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Contato */
+        .contact {
+            background-color: var(--white);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🦷 Dr. Seu Nome</div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1>Seu sorriso merece o melhor cuidado</h1>
+        <p>Especialistas em transformar vidas através de um sorriso saudável e radiante. Agende sua avaliação hoje mesmo.</p>
+        <a href="#contato" class="btn">Agendar Consulta</a>
+    </section>
+
+    <section class="services" id="servicos">
+        <h2>Nossas Especialidades</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Clareamento</h3>
+                <p>Recupere o brilho natural dos seus dentes com técnicas modernas e seguras.</p>
+            </div>
+            <div class="card">
+                <h3>Implantes</h3>
+                <p>Sua mastigação e autoestima de volta com tecnologia de ponta.</p>
+            </div>
+            <div class="card">
+                <h3>Ortodontia</h3>
+                <p>Aparelhos invisíveis e convencionais para alinhar o seu sorriso.</p>
+            </div>
+            <div class="card">
+                <h3>Limpeza Geral</h3>
+                <p>Prevenção é o melhor remédio. Mantenha sua saúde bucal em dia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <h2>Onde Estamos</h2>
+        <p>Rua da Odontologia, 123 - Centro, Sua Cidade</p>
+        <p>WhatsApp: (00) 99999-9999</p>
+        <br>
+        <a href="https://wa.me/seunumeroaqui" class="btn" style="background-color: #25d366;">Falar no WhatsApp</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dr. Seu Nome - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
