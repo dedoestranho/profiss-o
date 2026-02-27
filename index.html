@@ -9,12 +9,12 @@
     
     <style>
         :root {
-            --primary-rose: #f4dada;    /* Rosa Bebê */
-            --dark-rose: #d4a5a5;       /* Rosa Antigo para detalhes */
-            --accent-rose: #b07d7d;     /* Rosa para textos escuros */
-            --light-bg: #fffafa;        /* Fundo quase branco rosado */
+            --primary-rose: #f4dada;
+            --dark-rose: #d4a5a5;
+            --accent-rose: #b07d7d;
+            --light-bg: #fffafa;
             --white: #ffffff;
-            --text: #5a4a4a;            /* Marrom acinzentado suave para leitura */
+            --text: #5a4a4a;
         }
 
         * {
@@ -37,7 +37,6 @@
             color: var(--accent-rose);
         }
 
-        /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
             padding: 1.2rem 8%;
@@ -72,15 +71,14 @@
 
         nav a:hover { color: var(--dark-rose); }
 
-        /* Hero Section */
+        /* HERO AJUSTADA - IMAGEM NORMAL */
         .hero {
             padding: 120px 8%;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%), 
-                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070') center/cover;
-            /* Adicionei um overlay suave para o texto não sumir na imagem de fundo se quiser usar imagem no hero */
-            background-blend-mode: overlay;
+            /* Removido o overlay que "estourava" a imagem */
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3)), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
             text-align: center;
-            min-height: 70vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -92,17 +90,19 @@
             margin-bottom: 1.5rem;
             max-width: 900px;
             line-height: 1.1;
+            /* Sombra leve para destacar o texto sobre a imagem clara */
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 600px;
             margin-bottom: 2.5rem;
-            color: var(--text);
-            font-weight: 400;
+            color: #4a4a4a;
+            font-weight: 500;
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
         }
 
-        /* Botão Delicado */
         .btn {
             background: var(--dark-rose);
             color: white;
@@ -116,10 +116,11 @@
             transition: 0.4s;
             display: inline-block;
             border: 1px solid var(--dark-rose);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .btn:hover {
-            background: transparent;
+            background: white;
             color: var(--dark-rose);
             transform: translateY(-3px);
         }
@@ -151,7 +152,6 @@
         .services-image img {
             width: 100%;
             border-radius: 100px 100px 0 0;
-            filter: contrast(105%) brightness(105%);
             box-shadow: 20px 20px 0px var(--primary-rose);
             object-fit: cover;
             height: 450px;
@@ -177,20 +177,20 @@
             transform: translateX(10px);
         }
 
-        /* Seção Contato/Agendamento com Imagem */
+        /* Seção Contato */
         .contact-section {
             padding: 80px 8%;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 50px;
+            background-color: var(--white);
         }
 
         .contact-content { flex: 1; text-align: left; min-width: 300px; }
         .contact-img { flex: 1; min-width: 300px; }
         .contact-img img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        /* Info Box */
         .info-box {
             background: var(--primary-rose);
             padding: 80px 8%;
@@ -214,7 +214,7 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             .services-container, .contact-section { flex-direction: column-reverse; }
             .contact-content { text-align: center; }
         }
