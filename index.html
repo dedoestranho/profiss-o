@@ -75,7 +75,10 @@
         /* Hero Section */
         .hero {
             padding: 120px 8%;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070') center/cover;
+            /* Adicionei um overlay suave para o texto não sumir na imagem de fundo se quiser usar imagem no hero */
+            background-blend-mode: overlay;
             text-align: center;
             min-height: 70vh;
             display: flex;
@@ -95,8 +98,8 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin-bottom: 2.5rem;
-            color: var(--accent-rose);
-            letter-spacing: 0.5px;
+            color: var(--text);
+            font-weight: 400;
         }
 
         /* Botão Delicado */
@@ -104,7 +107,7 @@
             background: var(--dark-rose);
             color: white;
             padding: 14px 40px;
-            border-radius: 2px; /* Estilo mais clássico/reto */
+            border-radius: 2px;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
@@ -121,7 +124,7 @@
             transform: translateY(-3px);
         }
 
-        /* Seção Especialidades com Imagem */
+        /* Seção Especialidades */
         .services {
             padding: 100px 8%;
             background: var(--white);
@@ -147,9 +150,11 @@
 
         .services-image img {
             width: 100%;
-            border-radius: 100px 100px 0 0; /* Formato de arco elegante */
-            filter: sepia(20%) contrast(90%); /* Filtro suave para combinar com o rosa */
+            border-radius: 100px 100px 0 0;
+            filter: contrast(105%) brightness(105%);
             box-shadow: 20px 20px 0px var(--primary-rose);
+            object-fit: cover;
+            height: 450px;
         }
 
         .grid {
@@ -172,7 +177,18 @@
             transform: translateX(10px);
         }
 
-        .card h3 { font-size: 1.6rem; margin-bottom: 5px; }
+        /* Seção Contato/Agendamento com Imagem */
+        .contact-section {
+            padding: 80px 8%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .contact-content { flex: 1; text-align: left; min-width: 300px; }
+        .contact-img { flex: 1; min-width: 300px; }
+        .contact-img img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
         /* Info Box */
         .info-box {
@@ -188,21 +204,19 @@
         }
 
         .info-item h3 { font-size: 2.5rem; margin-bottom: 10px; }
-        .info-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
 
-        /* Rodapé */
         footer {
             background: #4a3f3f;
             color: var(--primary-rose);
             padding: 50px 8%;
             text-align: center;
             font-size: 0.8rem;
-            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .services-container { flex-direction: column-reverse; }
+            .services-container, .contact-section { flex-direction: column-reverse; }
+            .contact-content { text-align: center; }
         }
     </style>
 </head>
@@ -219,29 +233,29 @@
     </header>
 
     <section class="hero" id="home">
-        <h1>A arte de criar sorrisos delicados e saudáveis.</h1>
-        <p>Um novo conceito em odontologia, onde o cuidado e o bem-estar caminham juntos.</p>
-        <a href="https://wa.me/5500999999999" class="btn">Agendar Avaliação</a>
+        <h1>Sorrisos que transformam vidas.</h1>
+        <p>A união entre a delicadeza do cuidado e a precisão da odontologia moderna.</p>
+        <a href="#contato" class="btn">Agendar Avaliação</a>
     </section>
 
     <section class="services" id="servicos">
         <h2>Nossas Especialidades</h2>
         <div class="services-container">
             <div class="services-image">
-                <img src="https://images.unsplash.com/photo-1445510861639-5651173bc5d5?auto=format&fit=crop&q=80&w=1000" alt="Consultório Odontológico Elegante">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1000" alt="Odontologia Estética">
             </div>
             <div class="grid">
                 <div class="card">
-                    <h3>Estética Dental</h3>
-                    <p>Procedimentos minimamente invasivos para realçar sua beleza natural.</p>
+                    <h3>Clareamento Profissional</h3>
+                    <p>Tecnologia avançada para devolver o brilho natural do seu sorriso de forma segura.</p>
                 </div>
                 <div class="card">
-                    <h3>Harmonização</h3>
-                    <p>Equilíbrio e suavidade para as linhas do seu rosto e sorriso.</p>
+                    <h3>Lentes de Porcelana</h3>
+                    <p>A perfeição estética em cada detalhe, desenhada exclusivamente para o seu rosto.</p>
                 </div>
                 <div class="card">
-                    <h3>Ortodontia</h3>
-                    <p>Alinhamento preciso com aparelhos discretos e modernos.</p>
+                    <h3>Prevenção e Saúde</h3>
+                    <p>Check-ups regulares com limpeza profunda para manter sua saúde bucal em dia.</p>
                 </div>
             </div>
         </div>
@@ -259,19 +273,26 @@
             </div>
             <div class="info-item">
                 <h3>5 Anos</h3>
-                <p>Dedicação Acadêmica</p>
+                <p>Formação Acadêmica</p>
             </div>
         </div>
     </section>
 
-    <section id="contato" style="text-align: center; padding: 100px 8%;">
-        <h2 style="margin-bottom: 20px;">Onde nos encontrar</h2>
-        <p style="margin-bottom: 40px; color: var(--accent-rose);">Rua da Odontologia, 123 • Edifício Elegance • Sala 405</p>
-        <a href="#" class="btn" style="background: #e9baba; border-color: #e9baba; color: #5a4a4a;">Falar pelo WhatsApp</a>
+    <section class="contact-section" id="contato">
+        <div class="contact-img">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000" alt="Agendamento">
+        </div>
+        <div class="contact-content">
+            <h2>Agende seu momento</h2>
+            <p style="margin-bottom: 20px;">Estamos prontos para cuidar de você em um ambiente acolhedor e moderno.</p>
+            <p style="color: var(--accent-rose); font-weight: 500;">Rua da Odontologia, 123 • Sala 405</p>
+            <p style="margin-bottom: 30px;">Segunda a Sexta: 09h às 18h</p>
+            <a href="https://wa.me/5500999999999" class="btn" style="background: #25d366; border-color: #25d366;">WhatsApp</a>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 DRA. NICOLY PIMENTEL • ODONTOLOGIA DE EXCELÊNCIA</p>
+        <p>&copy; 2026 DRA. NICOLY PIMENTEL • TODOS OS DIREITOS RESERVADOS</p>
     </footer>
 
 </body>
